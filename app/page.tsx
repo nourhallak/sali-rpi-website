@@ -4,7 +4,7 @@ import logo from '../public/Logo.png';
 export default function Home() {
   return (
     <main className="">
-      <Image src={logo} alt="" className="h-20 w-44" />
+      <Image src={logo} alt="" className="h-16 w-44" />
       <h1 className="m-16 text-2xl ">Welcome. How can I help you?</h1>
       <div className="flex flex-row justify-evenly">
         <div className="rounded shadow-lg size-48 p-8 border-t-8 border-t-pink-400">
