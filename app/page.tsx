@@ -4,7 +4,7 @@ import logo from '../public/Logo_2.png';
 export default function Home() {
   return (
     <main>
-      <div className='w-full h-20'>
+      <div className='w-full h-28'>
         <Image src={logo} alt="" className="w-32 m-6 float-right" />
       </div>
       <div className="">
