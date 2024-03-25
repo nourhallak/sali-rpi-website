@@ -9,16 +9,16 @@ export default function Home() {
       </div>
       <div className="">
 
-      <h1 className="ml-12 mb-4 w-fit text-2xl">Welcome! How can I help you?</h1>
-      <div className="flex flex-row justify-evenly">
+      <h1 className="ml-12 mb-8 w-fit text-2xl">Welcome! How can I help you?</h1>
+      <div className="flex flex-row justify-evenly text-2xl text-center">
         <div className="rounded shadow-lg size-48 p-8 border-t-8 border-t-pink-600">
-          Mode 1
+          Find A Book
         </div>
         <div className="rounded shadow-lg size-48 p-8 border-t-8 border-t-purple-600">
-          Mode 2
+          Return Books
         </div>
         <div className="rounded shadow-lg size-48 p-8 border-t-8 border-t-blue-600">
-          Mode 3
+          Inspection
         </div>
       </div>
       </div>
