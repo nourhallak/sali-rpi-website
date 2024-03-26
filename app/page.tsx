@@ -14,7 +14,7 @@ export default function Home() {
                 <div className="bg-white rounded shadow-xl h-40 w-48 p-8 border-t-8 border-t-pink-600">
                   Find A Book
                 </div>
-                <div className="bg-white rounded shadow-xl h-40 w-48 p-8 border-t-8 border-t-purple-600">
+                <div className="bg-white rounded shadow-xl h-40 w-8 p-8 border-t-8 border-t-purple-600">
                   Return Books
                 </div>
           </div>
