@@ -11,10 +11,10 @@ export default function Home() {
         {/* <input type='text' className='border border-gray-700'></input> */}
       <h1 className=" ml-44 mb-8 w-fit text-3xl"><span className='font-bold '>Welcome! </span> How can I help you?</h1>
       <div className="flex flex-row justify-evenly text-2xl text-center">
-        <div className="rounded shadow-lg h-40 w-48 p-8 border-t-8 border-t-pink-600">
+        <div className="bg-white rounded shadow-lg h-40 w-48 p-8 border-t-8 border-t-pink-600">
           Find A Book
         </div>
-        <div className="rounded shadow-lg h-40 w-48 p-8 border-t-8 border-t-purple-600">
+        <div className="bg-white rounded shadow-lg h-40 w-48 p-8 border-t-8 border-t-purple-600">
           Return Books
         </div>
       </div>
