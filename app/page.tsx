@@ -27,7 +27,7 @@ export default function Home() {
                 </div>
           </div>
       </div>
-        <Image src={rhu_logo} alt="" className="w-5/6 mb-2"/>
+        <Image src={rhu_logo} alt="" className="w-11/12 mb-2"/>
     </main>
   );
 }
