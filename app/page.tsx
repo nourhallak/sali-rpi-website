@@ -4,8 +4,8 @@ import logo from '../public/Logo_2.png';
 export default function Home() {
   return (
     <main>
-      <div className='w-full h-40 flex justify-center'>
-        <Image src={logo} alt="" className="w-40 m-8"/>
+      <div className='w-full h-32 flex justify-center'>
+        <Image src={logo} alt="" className="w-44  m-4"/>
       </div>
      
       <div className="w-full flex flex-col items-center">
