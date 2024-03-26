@@ -11,7 +11,7 @@ export default function Home() {
      
       <div className="w-full flex flex-col items-center">
           <h1 className="mb-8 w-fit text-3xl"><span className='font-bold'>Welcome! </span> How can I help you?</h1>
-          <div className="flex flex-row justify-evenly text-xl text-center size-4/5">
+          <div className="flex flex-row justify-evenly text-2xl text-center size-4/5 ">
                 
                 <div className="bg-white rounded shadow-xl">
                   <div className='bg-gradient-to-r from-purple-500 to-blue-400 h-2 rounded-t'></div>
