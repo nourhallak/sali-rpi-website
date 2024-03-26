@@ -14,13 +14,13 @@ export default function Home() {
                 
                 <div className="bg-white rounded shadow-2xl">
                   <div className='bg-gradient-to-r from-purple-500 to-blue-500 h-3 rounded-t'></div>
-                  <div className='h-40 w-48 p-8'>
+                  <div className='h-36 w-48 p-8'>
                     Find A Book
                   </div>
                 </div>
                 <div className="bg-white rounded shadow-2xl">
                   <div className='bg-gradient-to-r from-purple-500 to-blue-500 h-3 rounded-t'></div>
-                  <div className='h-40 w-48 p-8'>
+                  <div className='h-36 w-48 p-8'>
                     Return Books                  
                   </div>
                 </div>
