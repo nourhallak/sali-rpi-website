@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="bg-gray-300">
+    <html lang="en" className="bg-gray-100">
       <head>
       <link rel="icon" href="/icon.ico" sizes="any" />
       </head>
