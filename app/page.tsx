@@ -4,11 +4,11 @@ import logo from '../public/Logo_2.png';
 export default function Home() {
   return (
     <main>
-      <div className='w-full h-32 flex justify-center'>
-        <Image src={logo} alt="" className="w-32 m-6 " />
+      <div className='w-full h-40 flex justify-center'>
+        <Image src={logo} alt="" className="w-40 m-8 " />
       </div>
       <div className="">
-      <h1 className="mt-4 ml-44 mb-8 w-fit text-3xl"><span className='font-bold '>Welcome!</span> How can I help you?</h1>
+      <h1 className=" ml-44 mb-8 w-fit text-3xl"><span className='font-bold '>Welcome!</span> How can I help you?</h1>
       <div className="flex flex-row justify-evenly text-2xl text-center">
         <div className="rounded shadow-lg h-40 w-48 p-8 border-t-8 border-t-pink-600">
           Find A Book
