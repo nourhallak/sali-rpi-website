@@ -13,13 +13,13 @@ export default function Home() {
           <div className="flex flex-row justify-evenly text-2xl text-center size-4/5">
                 
                 <div className="bg-white rounded shadow-2xl">
-                  <div className='bg-gradient-to-r from-purple-500 to-blue-400 h-3 rounded-t'></div>
+                  <div className='bg-gradient-to-r from-purple-500 to-blue-400 h-2 rounded-t'></div>
                   <div className='h-36 w-48 p-8'>
                     Find A Book
                   </div>
                 </div>
                 <div className="bg-white rounded shadow-2xl">
-                  <div className='bg-gradient-to-r from-purple-500 to-blue-400 h-3 rounded-t'></div>
+                  <div className='bg-gradient-to-r from-purple-500 to-blue-400 h-2 rounded-t'></div>
                   <div className='h-36 w-48 p-8'>
                     Return Books                  
                   </div>
