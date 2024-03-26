@@ -19,7 +19,7 @@ export default function Home() {
                     Find A Book
                   </div>
                 </div>
-                <div className="bg-white rounded shadow-2xl">
+                <div className="bg-white rounded shadow-xl">
                   <div className='bg-gradient-to-r from-purple-600 to-blue-400 h-2 rounded-t'></div>
                   <div className='h-36 w-48 p-8'>
                     Return Books                  
