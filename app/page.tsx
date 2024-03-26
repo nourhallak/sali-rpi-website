@@ -8,8 +8,7 @@ export default function Home() {
         <Image src={logo} alt="" className="w-32 m-6 " />
       </div>
       <div className="">
-
-      <h1 className="mt-4 ml-44 mb-8 w-fit text-3xl "><span className='font-bold '>Welcome!</span> How can I help you?</h1>
+      <h1 className="mt-4 ml-44 mb-8 w-fit text-3xl"><span className='font-bold '>Welcome!</span> How can I help you?</h1>
       <div className="flex flex-row justify-evenly text-2xl text-center">
         <div className="rounded shadow-lg h-40 w-48 p-8 border-t-8 border-t-pink-600">
           Find A Book
@@ -17,9 +16,6 @@ export default function Home() {
         <div className="rounded shadow-lg h-40 w-48 p-8 border-t-8 border-t-purple-600">
           Return Books
         </div>
-        {/* <div className="rounded shadow-lg h-40 w-48 p-8 border-t-8 border-t-blue-600"> */}
-            {/* Inspection
-          </div> */}
       </div>
       </div>
     </main>
