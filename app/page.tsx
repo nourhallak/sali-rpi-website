@@ -1,11 +1,12 @@
 import Image from 'next/image';
 import logo from '../public/Logo_2.png';
+import rhu_logo from '../public/rhu_logo.png'
 
 export default function Home() {
   return (
-    <main>
-      <div className='w-full h-32 flex justify-center'>
-        <Image src={logo} alt="" className="w-44  m-4"/>
+    <main className='h-[480px] flex flex-col justify-between items-center'>
+      <div className='w-full h-24 pt-8 flex justify-center'>
+        <Image src={logo} alt="" className="w-44"/>
       </div>
      
       <div className="w-full flex flex-col items-center">
@@ -26,6 +27,7 @@ export default function Home() {
                 </div>
           </div>
       </div>
+        <Image src={rhu_logo} alt="" className="w-4/5 "/>
     </main>
   );
 }
