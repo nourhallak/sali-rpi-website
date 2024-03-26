@@ -3,7 +3,7 @@ import logo from '../public/Logo_2.png';
 
 export default function Home() {
   return (
-    <main>
+    <main className='bg-gray-100'>
       <div className='w-full h-40 flex justify-center'>
         <Image src={logo} alt="" className="w-40 m-8 " />
       </div>
