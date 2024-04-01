@@ -1,14 +1,13 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import logo from '../public/Logo_2.png';
-import rhu_logo from '../public/rhu_logo_1.png'
 import Header from '../Header/page';
 
 export default function Search() {
   return (
     <main className='h-[480px]'>
-        <Header />   
-
+      <Header />   
+      <div className='flex items-center'>
+        <h1 className="m-10 w-fit text-xl">Type the name of the book:</h1>
+        <input type="text" className='border border-black h-6 w-64' />
+      </div>
     </main>
   );
 }
