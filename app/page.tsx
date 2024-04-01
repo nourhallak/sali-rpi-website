@@ -17,6 +17,7 @@ export default function Home() {
                 </div>
               </div>
               </Link>
+              
               <div className="rounded shadow-xl">
                 <div className='bg-gradient-to-r from-purple-600 to-blue-400 h-2 rounded-t'></div>
                 <div className='h-36 w-48 p-8'>
