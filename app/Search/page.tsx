@@ -1,4 +1,4 @@
-import { book } from "../Interfaces/Book";
+import { book } from "../../Interfaces/Book";
 import { SearchPage } from "./searchPage";
 
 // Fetching data from database
@@ -12,9 +12,3 @@ export default async function Search() {
 
   return <SearchPage allBooks={books} />;
 }
-
-/* <div>
-        {books.map((book) => (
-          <p>{book.name}</p>
-        ))}
-      </div> */

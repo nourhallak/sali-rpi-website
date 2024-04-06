@@ -1,10 +1,8 @@
-import Header from "./Header/page";
 import Link from "next/link";
 
 export default function Home() {
   return (
     <main className="h-[480px] flex flex-col items-center">
-      <Header />
       <div className="w-full flex flex-col items-center mt-14">
         <h1 className="mb-8 w-fit text-3xl">
           <span className="font-bold">Welcome! </span> How can I help you?
