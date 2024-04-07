@@ -24,7 +24,6 @@ export default async function Page({ params }: Props) {
   const { bookid } = params;
   const clickedBook = getBookInfo(bookid);
   const startNavigation = startNavigationRequest(bookid);
-  startNavigation;
   return (
     <main className="m-20">
       {/* display data of clicked book */}
@@ -38,6 +37,7 @@ export default async function Page({ params }: Props) {
           href={"../NavigationPage"}
           className="mt-12 p-3 border border-gray-300"
         >
+          {/* {startNavigation;} */}
           Search
         </Link>
       </div>
