@@ -10,7 +10,7 @@ type Props = {
 
 export const SearchPage = ({ allBooks }: Props) => {
   const [bookName, setBookName] = useState("");
-  let clickedBook = "";
+
   const books = allBooks.filter(({ name }) =>
     name.toLowerCase().includes(bookName.toLowerCase().trim())
   );
