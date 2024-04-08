@@ -3,7 +3,7 @@ import PostScan from "./PostScanRequest";
 import CancelScan from "./CancelScanRquest";
 import Link from "next/link";
 
-export default function () {
+export default function page() {
   //   Post scan request
   const Scan = () => {
     PostScan();
