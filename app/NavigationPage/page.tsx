@@ -6,6 +6,7 @@ import Link from "next/link";
 //   return (await res.json()) as book;
 // };
 
+// post requests
 export default async function Page() {
   return (
     <main className="m-20">
