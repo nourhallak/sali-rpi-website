@@ -34,18 +34,22 @@ export default function NavigationPage({ statusParam }: Props) {
   };
 
   return (
-    <main className="m-20 flex flex-col items-center">
-      <p className="text-black">{statusTextControl()}</p>
+    <main className="m-24 flex flex-col items-center">
+      <p className="text-black  text-2xl">{statusTextControl()}</p>
+      <p className="text-black  text-2xl">Name of the book</p>
       <div className="flex justify-between m-8 ">
         {/* Buuton to pause */}
-        <a onClick={Pause} className="m-12 p-4 border border-gray-300">
+        <a
+          onClick={Pause}
+          className="absolute bottom-24 left-16 w-80 text-center p-3 border border-gray-600 font-bold"
+        >
           Pause
         </a>
         {/* Button to cancel operation */}
         <a
           onClick={Cancel}
           href="../"
-          className="m-12 p-4 border border-gray-300"
+          className="absolute bottom-24 right-16 w-80 text-center p-3 border border-gray-600 font-bold"
         >
           Cancel
         </a>

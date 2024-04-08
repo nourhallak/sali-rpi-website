@@ -1,6 +1,7 @@
 "use client";
 import PostScan from "./PostScanRequest";
 import CancelScan from "./CancelScanRquest";
+import Link from "next/link";
 
 export default async function () {
   //   Post scan request
@@ -14,20 +15,34 @@ export default async function () {
   };
 
   return (
-    <main>
-      <a onClick={Scan} className="m-12 p-3 border border-gray-300">
-        Scan
-      </a>
-      <a onClick={cancelScan} className="m-12 p-3 border border-gray-300">
-        Cancel Scan
-      </a>
+    <main className="flex flex-col mt-20 items-center ">
+      <p className="text-2xl">Name of book</p>
+      <div className="">
+        <a
+          onClick={Scan}
+          className="absolute bottom-40 left-60 w-36 text-center p-3 border border-gray-600 font-bold"
+        >
+          Scan
+        </a>
+        <a
+          onClick={cancelScan}
+          className="absolute bottom-40 right-60 w-36 text-center  p-3 border border-gray-600 font-bold"
+        >
+          Cancel Scan
+        </a>
+      </div>
       <a
-        onClick={cancelScan}
         href="../NavigationPage"
-        className="m-12 p-3 border border-gray-300"
+        className="absolute bottom-24 left-[240px] w-80 text-center p-3 bg-green-500 text-white font-bold text-xl"
       >
         Start Returning
       </a>
+      <Link
+        href="../"
+        className="absolute bottom-8 left-8 p-3 border border-gray-600 font-bold"
+      >
+        Back to home
+      </Link>
     </main>
   );
 }

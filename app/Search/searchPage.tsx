@@ -21,19 +21,19 @@ export const SearchPage = ({ allBooks }: Props) => {
   };
 
   return (
-    <main className="h-[480px]">
+    <main className="h-[368px] relative">
       <div className="flex items-center justify-center">
-        <h1 className="mt-10 mr-10 mb-10 w-fit text-xl">
+        <h1 className="mt-16 mr-10  w-fit text-xl">
           Type the name of the book:
         </h1>
         <input
           type="text"
-          className="border border-black h-6 w-80"
+          className="mt-16 border border-black h-6 w-80"
           value={bookName}
           onChange={onChange}
         />
       </div>
-      <div>
+      <div className="ml-8">
         {books.map((book) => (
           <a
             className="block w-fit hover:bg-gray-100"
@@ -44,11 +44,12 @@ export const SearchPage = ({ allBooks }: Props) => {
           </a>
         ))}
       </div>
-      <div className="flex items-end h-[260px]">
-        <Link href="../" className="m-12 p-3 border border-gray-300">
-          Back to home
-        </Link>
-      </div>
+      <Link
+        href="../"
+        className="absolute bottom-8 left-8 p-3 border border-gray-600 font-bold"
+      >
+        Back to home
+      </Link>
     </main>
   );
 };

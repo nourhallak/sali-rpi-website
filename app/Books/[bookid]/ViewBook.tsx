@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { book } from "../../../Interfaces/Book";
 import startNavigationRequest from "./PostStartNavigation";
 import { useRouter } from "next/navigation";
@@ -13,25 +14,44 @@ export default function ViewBook({ params }: Props) {
   const { clickedBook, bookid } = params;
 
   return (
-    <main className="m-20">
-      {/* display data of clicked book */}
-      <p>{clickedBook.decoded_string}</p>
-      <p>{clickedBook.name}</p>
-      <p>{clickedBook.auther}</p>
-
-      {/* button to start searching */}
+    <main className="">
+      <div className="absolute left-40 top-44 ">
+        {/* display data of clicked book */}
+        <p className="relative ">
+          <span className="font-bold">ID: </span>
+          {clickedBook.decoded_string}
+        </p>
+        <p className="relative top-6">
+          <span className="font-bold">Name: </span>
+          {clickedBook.name}
+        </p>
+        <p className="relative top-12">
+          <span className="font-bold">Auther: </span>
+          {clickedBook.auther}
+        </p>
+      </div>
+      <div className="absolute right-40 top-40">
+        <Image width={145} height={200} alt="image" src="/image.jpg" />
+      </div>
       <div className="flex items-end ">
+        {/* button to start searching */}
         <a
           onClick={() =>
             startNavigationRequest(bookid).then(() =>
               router.push("../NavigationPage")
             )
           }
-          className="mt-12 p-3 border border-gray-300"
+          className="absolute bottom-24 w-80 left-40 text-center mt-12 p-3  bg-green-500 text-white font-bold text-xl"
         >
           Search
         </a>
       </div>
+      <Link
+        href="../Search"
+        className="absolute bottom-8 left-8 p-3 border border-gray-600 font-bold"
+      >
+        Back to home
+      </Link>
     </main>
   );
 }
