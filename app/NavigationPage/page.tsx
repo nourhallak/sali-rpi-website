@@ -1,27 +1,16 @@
-"use client";
-import PostCancel from "../NavigationPage/PostCancel";
-import PostPause from "../NavigationPage/PostPause";
+import { Status } from "@/Interfaces/Status";
+import { URL } from "@/utils/url";
+import NavigationPage from "./NavigationPage";
 
-export default async function NavigationPage() {
-  const Cancel = (event: any) => {
-    PostCancel();
-  };
-  const Pause = (event: any) => {
-    PostPause();
-  };
+// Fetching data from database
+export const getStatus = async () => {
+  const res = await fetch(`${URL}/screen/currentstatus`);
+  return (await res.json()) as Status;
+};
+export default async function getStatusComponent() {
+  const status = await getStatus();
 
-  return (
-    <main className="m-20">
-      <div className="flex justify-between m-12 ">
-        {/* Buuton to pause */}
-        <a onClick={Pause} className="m-12 p-3 border border-gray-300">
-          Pause
-        </a>
-        {/* Button to cancel operation */}
-        <q onClick={Cancel} className="m-12 p-3 border border-gray-300">
-          Cancel
-        </q>
-      </div>
-    </main>
-  );
+  console.log(status);
+
+  return <NavigationPage statusParam={{ status }} />;
 }

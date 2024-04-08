@@ -5,6 +5,5 @@ export default async function PostPause() {
     method: "POST",
     body: "Pause",
   });
-  console.log("Pause");
   return;
 }

@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+export const revalidate = 0;
+
 export default function Home() {
   return (
     <main className="h-[480px] flex flex-col items-center">

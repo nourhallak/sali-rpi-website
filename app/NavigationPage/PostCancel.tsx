@@ -5,6 +5,5 @@ export default async function PostCancel() {
     method: "POST",
     body: "Cancel Operation",
   });
-  console.log("Cancel Operation");
   return;
 }
