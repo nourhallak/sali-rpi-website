@@ -11,8 +11,10 @@ type Props = {
 export const SearchPage = ({ allBooks }: Props) => {
   const [bookName, setBookName] = useState("");
 
-  const books = allBooks.filter(({ name }) =>
-    name.toLowerCase().includes(bookName.toLowerCase().trim())
+  const books = allBooks.filter(
+    ({ name }) =>
+      bookName.trim().length > 0 &&
+      name.toLowerCase().includes(bookName.toLowerCase().trim())
   );
 
   // On change function for the text input
@@ -23,7 +25,7 @@ export const SearchPage = ({ allBooks }: Props) => {
   return (
     <main className="h-[368px] relative">
       <div className="flex items-center justify-center">
-        <h1 className="mt-16 mr-10  w-fit text-xl">
+        <h1 className="mt-16 mr-10 w-fit text-xl">
           Type the name of the book:
         </h1>
         <input
@@ -33,10 +35,10 @@ export const SearchPage = ({ allBooks }: Props) => {
           onChange={onChange}
         />
       </div>
-      <div className="ml-8">
+      <div className="ml-[395px]">
         {books.map((book) => (
           <a
-            className="block w-fit hover:bg-gray-100"
+            className="block w-80 hover:bg-gray-100 border-b border-gray-200"
             key={book.decoded_string}
             href={`/Books/${book.decoded_string}`}
           >

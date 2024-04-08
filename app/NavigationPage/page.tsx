@@ -9,8 +9,5 @@ export const getStatus = async () => {
 };
 export default async function getStatusComponent() {
   const status = await getStatus();
-
-  console.log(status);
-
   return <NavigationPage statusParam={{ status }} />;
 }

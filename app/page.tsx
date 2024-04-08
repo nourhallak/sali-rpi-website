@@ -24,6 +24,15 @@ export default function Home() {
           </Link>
         </div>
       </div>
+      <div className="flex justify-evenly w-full mt-12">
+        <p className="">Khaled Al Sweid</p>
+        <p>-</p>
+        <p className="">Mohammad El Kurjieh</p>
+        <p>-</p>
+        <p className="">Noor Hallak</p>
+        <p>-</p>
+        <p className="">Maya Hashash</p>
+      </div>
     </main>
   );
 }
