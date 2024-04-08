@@ -1,6 +1,6 @@
-import { book } from "../../Interfaces/Book";
+"use client";
 
-export default async function Search() {
+export default async function () {
   return (
     <main>
       <a href="" className="m-12 p-3 border border-gray-300">

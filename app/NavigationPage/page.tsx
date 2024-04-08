@@ -1,19 +1,26 @@
-import Link from "next/link";
+"use client";
+import PostCancel from "../NavigationPage/PostCancel";
+import PostPause from "../NavigationPage/PostPause";
 
-// // Fetching book info from database
-// export const getBookInfo = async (bookid: string) => {
-//   const res = await fetch(`http://localhost:5001/screen/search/${bookid}`);
-//   return (await res.json()) as book;
-// };
-
-// post requests
 export default async function Page() {
+  const Cancel = (event: any) => {
+    PostCancel();
+  };
+  const Pause = (event: any) => {
+    PostPause();
+  };
+
   return (
     <main className="m-20">
-      {/* buutons to start searching */}
-      <div className="flex justify-between ">
-        <Link href="#">Cancel</Link>
-        <Link href="#">Pause</Link>
+      <div className="flex justify-between m-12 ">
+        {/* Buuton to pause */}
+        <a onClick={Pause} className="m-12 p-3 border border-gray-300">
+          Pause
+        </a>
+        {/* Button to cancel operation */}
+        <q onClick={Cancel} className="m-12 p-3 border border-gray-300">
+          Cancel
+        </q>
       </div>
     </main>
   );
