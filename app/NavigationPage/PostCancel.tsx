@@ -1,5 +1,7 @@
+import { URL } from "@/utils/url";
+
 export default async function PostCancel() {
-  const res = await fetch("http://localhost:5001/screen/search/cancel", {
+  const res = await fetch(`${URL}/screen/cancel`, {
     method: "POST",
     body: "Cancel Operation",
   });

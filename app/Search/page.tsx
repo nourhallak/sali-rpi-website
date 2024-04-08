@@ -1,9 +1,10 @@
 import { book } from "../../Interfaces/Book";
 import { SearchPage } from "./searchPage";
+import { URL } from "@/utils/url";
 
 // Fetching data from database
 export const getBooks = async () => {
-  const res = await fetch("http://localhost:5001/screen/search/books/allbooks");
+  const res = await fetch(`${URL}/screen/search/books/allbooks`);
   return (await res.json()) as book[];
 };
 

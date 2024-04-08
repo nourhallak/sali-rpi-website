@@ -1,5 +1,7 @@
+import { URL } from "@/utils/url";
+
 export default async function PostPause() {
-  const res = await fetch("http://localhost:5001/screen/search/pause", {
+  const res = await fetch(`${URL}/screen/pause`, {
     method: "POST",
     body: "Pause",
   });

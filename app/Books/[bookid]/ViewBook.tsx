@@ -2,17 +2,16 @@
 import Link from "next/link";
 import { book } from "../../../Interfaces/Book";
 import startNavigationRequest from "./PostStartNavigation";
+import { useRouter } from "next/navigation";
 
 type Props = {
-  params: { clickedBook: book };
+  params: { clickedBook: book; bookid: string };
 };
 
 export default function ViewBook({ params }: Props) {
-  const { clickedBook } = params;
+  const router = useRouter();
+  const { clickedBook, bookid } = params;
 
-  const startNavigation = (event: any) => {
-    startNavigationRequest();
-  };
   return (
     <main className="m-20">
       {/* display data of clicked book */}
@@ -22,13 +21,16 @@ export default function ViewBook({ params }: Props) {
 
       {/* button to start searching */}
       <div className="flex items-end ">
-        <Link
-          onClick={startNavigation}
-          href={"../NavigationPage"}
+        <a
+          onClick={() =>
+            startNavigationRequest(bookid).then(() =>
+              router.push("../NavigationPage")
+            )
+          }
           className="mt-12 p-3 border border-gray-300"
         >
           Search
-        </Link>
+        </a>
       </div>
     </main>
   );
