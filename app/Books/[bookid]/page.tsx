@@ -14,5 +14,5 @@ export default async function BookInfo({ params }: Props) {
   const { bookid } = params;
   const book = await getBookInfo(bookid);
 
-  return <ViewBook params={{ clickedBook: book, bookid: bookid }} />;
+  return <ViewBook params={{ clickedBook: book }} />;
 }

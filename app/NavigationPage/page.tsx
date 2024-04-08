@@ -2,7 +2,7 @@
 import PostCancel from "../NavigationPage/PostCancel";
 import PostPause from "../NavigationPage/PostPause";
 
-export default async function Page() {
+export default async function NavigationPage() {
   const Cancel = (event: any) => {
     PostCancel();
   };

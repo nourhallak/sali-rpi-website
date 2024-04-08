@@ -4,14 +4,14 @@ import { book } from "../../../Interfaces/Book";
 import startNavigationRequest from "./PostStartNavigation";
 
 type Props = {
-  params: { clickedBook: book; bookid: string };
+  params: { clickedBook: book };
 };
 
 export default function ViewBook({ params }: Props) {
-  const { clickedBook, bookid } = params;
+  const { clickedBook } = params;
 
   const startNavigation = (event: any) => {
-    startNavigationRequest(bookid);
+    startNavigationRequest();
   };
   return (
     <main className="m-20">
