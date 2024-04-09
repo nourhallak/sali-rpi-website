@@ -50,7 +50,7 @@ export default function ViewBook({ params }: Props) {
         href="../Search"
         className="absolute bottom-8 left-8 p-3 border border-gray-600 font-bold"
       >
-        Back to home
+        Back
       </Link>
     </main>
   );

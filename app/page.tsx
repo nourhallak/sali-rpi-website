@@ -4,7 +4,7 @@ export const revalidate = 0;
 
 export default function Home() {
   return (
-    <main className="h-[480px] flex flex-col items-center">
+    <main className="h-[368px] flex flex-col items-center">
       <div className="w-full flex flex-col items-center mt-14">
         <h1 className="mb-8 w-fit text-3xl">
           <span className="font-bold">Welcome! </span> How can I help you?
