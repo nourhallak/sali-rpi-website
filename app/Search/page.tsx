@@ -8,8 +8,14 @@ export const getBooks = async () => {
   return (await res.json()) as book[];
 };
 
-export default async function Search() {
+type props = {
+  params: { inputText: string };
+};
+
+export default async function Search({ params }: props) {
   const books = await getBooks();
 
-  return <SearchPage allBooks={books} />;
+  return (
+    <SearchPage params={{ allBooks: books, inputText: params.inputText }} />
+  );
 }

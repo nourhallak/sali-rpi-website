@@ -1,3 +1,4 @@
+import Keyboard from "@/Components/Keyboard";
 import Link from "next/link";
 
 export const revalidate = 0;

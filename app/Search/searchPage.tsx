@@ -3,15 +3,16 @@
 import Link from "next/link";
 import { useState } from "react";
 import { book } from "../../Interfaces/Book";
+import Keyboard from "@/Components/Keyboard";
 
 type Props = {
-  allBooks: book[];
+  params: { allBooks: book[]; inputText: string };
 };
 
-export const SearchPage = ({ allBooks }: Props) => {
+export const SearchPage = ({ params }: Props) => {
   const [bookName, setBookName] = useState("");
 
-  const books = allBooks.filter(
+  const books = params.allBooks.filter(
     ({ name }) =>
       bookName.trim().length > 0 &&
       name.toLowerCase().includes(bookName.toLowerCase().trim())
@@ -20,6 +21,11 @@ export const SearchPage = ({ allBooks }: Props) => {
   // On change function for the text input
   const onChange = (event: any) => {
     setBookName(event.target.value ?? "");
+  };
+
+  // display keyboard popup
+  const onClick = () => {
+    <Keyboard />;
   };
 
   return (
@@ -31,8 +37,9 @@ export const SearchPage = ({ allBooks }: Props) => {
         <input
           type="text"
           className="mt-16 border border-black h-6 w-80"
-          value={bookName}
+          value={params.inputText}
           onChange={onChange}
+          onClick={onClick}
         />
       </div>
       <div className="ml-[395px]">
@@ -52,6 +59,7 @@ export const SearchPage = ({ allBooks }: Props) => {
       >
         Back to home
       </Link>
+      <Keyboard />
     </main>
   );
 };
