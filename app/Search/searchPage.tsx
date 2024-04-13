@@ -4,9 +4,10 @@ import Link from "next/link";
 import { useState } from "react";
 import { book } from "../../Interfaces/Book";
 import Keyboard from "@/Components/Keyboard";
+import React from "react";
 
 type Props = {
-  params: { allBooks: book[]; inputText: string };
+  params: { allBooks: book[] };
 };
 
 export const SearchPage = ({ params }: Props) => {
@@ -23,11 +24,6 @@ export const SearchPage = ({ params }: Props) => {
     setBookName(event.target.value ?? "");
   };
 
-  // display keyboard popup
-  const onClick = () => {
-    <Keyboard />;
-  };
-
   return (
     <main className="h-[368px] relative">
       <div className="flex items-center justify-center">
@@ -37,9 +33,8 @@ export const SearchPage = ({ params }: Props) => {
         <input
           type="text"
           className="mt-16 border border-black h-6 w-80"
-          value={params.inputText}
+          value={bookName}
           onChange={onChange}
-          onClick={onClick}
         />
       </div>
       <div className="ml-[395px]">
@@ -59,7 +54,7 @@ export const SearchPage = ({ params }: Props) => {
       >
         Back to home
       </Link>
-      <Keyboard />
+      <Keyboard value={bookName} setValue={setBookName} />
     </main>
   );
 };

@@ -1,25 +1,27 @@
 "use client";
 import Popup from "reactjs-popup";
 import { Button } from "@nextui-org/react";
-import { useState } from "react";
-import test from "node:test";
-import Search from "@/app/Search/page";
+import { Ref, useState } from "react";
 
 const keyStyle =
   "text-center pt-1 w-12 h-12 bg-gray-400 m-1 rounded-xl text-xl text-white font-bold";
-export default function Keyboard() {
-  const [Text, setTextValue] = useState("");
 
+type Props = {
+  value: string;
+  setValue: (value: string) => void;
+};
+
+export default function Keyboard({ value, setValue }: Props) {
   const ChangeTextFeild = (event: any) => {
-    let updatedText = Text;
-    if (event.target.value == ".") {
+    let updatedText = value;
+    let keyPressed = event.target.value;
+    if (keyPressed == ".") {
       updatedText = updatedText.slice(0, -1);
     } else {
-      updatedText = Text.concat(event.target.value);
+      updatedText += event.target.value;
     }
-    setTextValue(updatedText);
-    console.log(Text);
-    <Search params={{ inputText: Text }} />;
+    setValue(updatedText);
+    // params.textRef.current = updatedText;
   };
 
   return (
