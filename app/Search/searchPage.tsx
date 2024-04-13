@@ -12,7 +12,7 @@ type Props = {
 
 export const SearchPage = ({ params }: Props) => {
   const [bookName, setBookName] = useState("");
-  const [keyboardShown, setKeyboardShown] = useState(false);
+  const [keyboardShown, setKeyboardShown] = useState(true);
 
   const books = params.allBooks.filter(
     ({ name }) =>
@@ -33,12 +33,10 @@ export const SearchPage = ({ params }: Props) => {
   return (
     <main className="h-[368px] relative">
       <div className="flex items-center justify-center">
-        <h1 className="mt-16 mr-10 w-fit text-xl">
-          Type the name of the book:
-        </h1>
+        <h1 className="mt-4 mr-10 w-fit text-xl">Type the name of the book:</h1>
         <input
           type="text"
-          className="mt-16 border border-black h-6 w-80"
+          className="mt-4 border border-black h-6 w-80"
           value={bookName}
           onChange={onChange}
           onClick={showKeyboard}
