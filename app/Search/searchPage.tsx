@@ -12,6 +12,7 @@ type Props = {
 
 export const SearchPage = ({ params }: Props) => {
   const [bookName, setBookName] = useState("");
+  const [keyboardShown, setKeyboardShown] = useState(false);
 
   const books = params.allBooks.filter(
     ({ name }) =>
@@ -22,6 +23,11 @@ export const SearchPage = ({ params }: Props) => {
   // On change function for the text input
   const onChange = (event: any) => {
     setBookName(event.target.value ?? "");
+  };
+
+  // show keyboard function
+  const showKeyboard = () => {
+    setKeyboardShown(true);
   };
 
   return (
@@ -35,6 +41,7 @@ export const SearchPage = ({ params }: Props) => {
           className="mt-16 border border-black h-6 w-80"
           value={bookName}
           onChange={onChange}
+          onClick={showKeyboard}
         />
       </div>
       <div className="ml-[395px]">
@@ -54,7 +61,13 @@ export const SearchPage = ({ params }: Props) => {
       >
         Back to home
       </Link>
-      <Keyboard value={bookName} setValue={setBookName} />
+      {keyboardShown && (
+        <Keyboard
+          value={bookName}
+          setValue={setBookName}
+          setIsShown={setKeyboardShown}
+        />
+      )}
     </main>
   );
 };

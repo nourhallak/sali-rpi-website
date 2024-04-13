@@ -9,9 +9,10 @@ const keyStyle =
 type Props = {
   value: string;
   setValue: (value: string) => void;
+  setIsShown: (isShown: boolean) => void;
 };
 
-export default function Keyboard({ value, setValue }: Props) {
+export default function Keyboard({ value, setValue, setIsShown }: Props) {
   const ChangeTextFeild = (event: any) => {
     let updatedText = value;
     let keyPressed = event.target.value;
@@ -23,7 +24,9 @@ export default function Keyboard({ value, setValue }: Props) {
     setValue(updatedText);
     // params.textRef.current = updatedText;
   };
-
+  const hideKeyboard = () => {
+    setIsShown(false);
+  };
   return (
     <main>
       <div className="flex flex-col w-[800px] h-[250px] absolute bottom-0 bg-gray-200 border-2 border-t-gray-400 shadow-2xl shadow-black">
@@ -251,7 +254,10 @@ export default function Keyboard({ value, setValue }: Props) {
         </div>
 
         <div className="row-4 flex justify-center">
-          <Button className="absolute bottom-1 left-2 text-center pt-1 w-24 h-12 bg-gray-500 m-1 rounded-xl text-xl text-white ">
+          <Button
+            className="absolute bottom-1 left-2 text-center pt-1 w-24 h-12 bg-gray-500 m-1 rounded-xl text-xl text-white "
+            onClick={hideKeyboard}
+          >
             Close
           </Button>
           <Button
