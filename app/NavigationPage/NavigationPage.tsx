@@ -2,6 +2,7 @@
 import { Status } from "@/Interfaces/Status";
 import PostCancel from "../NavigationPage/PostCancel";
 import PostPause from "../NavigationPage/PostPause";
+import Link from "next/link";
 
 type Props = {
   statusParam: { status: Status };
@@ -40,29 +41,28 @@ export default function NavigationPage({ statusParam }: Props) {
       <div>
         <div className="flex justify-between m-8 ">
           {/* Buuton to pause */}
-          <a
+          <div
             onClick={Pause}
             className="absolute bottom-28 left-52 w-[185px] text-center p-3 border border-gray-600 font-bold"
           >
             Pause
-          </a>
+          </div>
           {/* Button to cancel operation */}
-          <a
+          <div
             onClick={Cancel}
-            href="../"
             className="absolute bottom-28 right-52 w-[185px] text-center p-3 border border-gray-600 font-bold"
           >
-            Cancel
-          </a>
+            <a href="../"> Cancel</a>
+          </div>
         </div>
         <div>
-          <a
-            onClick={Cancel}
+          {/* go to nextbook */}
+          <Link
             href="../"
             className="absolute bottom-12 left-[208px] w-96 text-center p-3 bg-green-500 text-white font-bold text-xl"
           >
             Done
-          </a>
+          </Link>
         </div>
       </div>
     </main>
