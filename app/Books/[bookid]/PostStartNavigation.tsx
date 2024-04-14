@@ -6,7 +6,7 @@ export default async function startNavigationRequest(bookid: string) {
     method: "POST",
     body: bookid,
   });
-  console.log("start navigation request is posted");
+  // console.log("start navigation request is posted");
 
   // if (!res.ok) throw new Error("Unable to fetch");
 
