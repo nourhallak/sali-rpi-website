@@ -1,8 +1,8 @@
 "use client";
 import { RobotCurrentStatus } from "@/Interfaces/Status";
-import PostCancel from "../../API/PostCancel";
-import PostPause from "@/API/PostPause";
-import PostRack from "../../API/PostRack";
+import PostCancel from "../../API/postCancel";
+import PostPause from "@/API/postPause";
+import PostRack from "../../API/postRack";
 import Link from "next/link";
 import { getCurrentStatus } from "@/API/getCurrentStatus";
 import { useEffect, useState } from "react";
@@ -11,7 +11,7 @@ import { emptybook } from "@/Interfaces/Book";
 
 export default function NavigationPage() {
   const defaultState: RobotCurrentStatus = {
-    navigationState: "READY",
+    navigationState: "SUCCEEDED",
     rackState: "HOME",
     batteryPercentage: 100,
   };
@@ -25,7 +25,7 @@ export default function NavigationPage() {
   }, []);
   // set book
   useEffect(() => {
-    getBookInfo("abc123").then((b) => {
+    getBookInfo("123abc").then((b) => {
       setBook(b);
     });
   }, []);
@@ -46,7 +46,7 @@ export default function NavigationPage() {
       return "Navigating to book";
     } else if (status.navigationState == "SUCCEEDED") {
       // call rack to go up to the book
-      PostRack(10);
+      PostRack(book.position.z);
       return "Destination reached";
     } else if (status.navigationState == "ABORTED") {
       return "Couldn't reach :(";
@@ -74,7 +74,9 @@ export default function NavigationPage() {
         navigation: {navigationStatusTextControl()}
       </p>
       <p className="text-black  text-2xl">Rack: {rackStatusTextControl()}</p>
-      <p className="text-black  text-2xl">{book.name}</p>
+      <p className="text-black  text-2xl">
+        {book.name} + {book.position.z}
+      </p>
       <div>
         <div className="flex justify-between m-8 ">
           {/* Buuton to pause */}

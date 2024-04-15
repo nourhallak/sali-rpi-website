@@ -29,9 +29,13 @@ export default function Header() {
       <div className="w-full h-28 flex">
         <Image src={rhu_logo} alt="" className="m-2 h-4/5 w-1/6  " />
         <Image src={logo} alt="" className="ml-36 pt-8 w-52 " />
-        <div className="ml-40  flex items-center">
-          <Image alt="" src={batteryimage} className="w-8 h-8 mr-2" />
-          {battery?.toFixed(2) || "Loading..."} %
+        <div className="ml-48  flex items-center">
+          {battery?.toFixed(0) || "Loading..."} %
+          <Image
+            alt=""
+            src={batteryimage}
+            className="w-6 h-6 ml-1 -rotate-90"
+          />
         </div>
       </div>
     </header>
