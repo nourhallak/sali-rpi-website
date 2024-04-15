@@ -1,27 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import getbattery from "./main";
-import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [battery, setBattery] = useState<number | undefined>(undefined);
-
-  useEffect(() => {
-    let fetcher = () =>
-      getbattery().then((b) => {
-        setBattery(b);
-      });
-
-    let interval = setInterval(() => {
-      fetcher();
-    }, 10000);
-
-    fetcher();
-
-    return () => clearTimeout(interval);
-  }, []);
-
   return (
     <main className="h-[368px] flex flex-col items-center">
       <div className="w-full flex flex-col items-center mt-14">
@@ -43,7 +24,6 @@ export default function Home() {
           </Link>
         </div>
       </div>
-      <div>{battery?.toFixed(2) || "Loading..."}</div>
       <div className="flex justify-evenly w-full mt-12">
         <p className="">Khaled Al Sweid</p>
         <p>-</p>
