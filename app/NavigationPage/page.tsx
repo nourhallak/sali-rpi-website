@@ -1,8 +1,8 @@
 "use client";
 import { RobotCurrentStatus } from "@/Interfaces/Status";
-import PostCancel from "./PostCancel";
-import PostPause from "./PostPause";
-import PostRack from "./PostRack";
+import PostCancel from "../../API/PostCancel";
+import PostPause from "@/API/PostPause";
+import PostRack from "../../API/PostRack";
 import Link from "next/link";
 import { getCurrentStatus } from "@/API/getCurrentStatus";
 import { useEffect, useState } from "react";
@@ -19,19 +19,15 @@ export default function NavigationPage() {
   const [book, setBook] = useState(emptybook);
   // setstatus
   useEffect(() => {
-    let fetcher = () =>
-      getCurrentStatus().then((state) => {
-        setStatus(state);
-      });
-    fetcher();
+    getCurrentStatus().then((state) => {
+      setStatus(state);
+    });
   }, []);
   // set book
   useEffect(() => {
-    let fetcher = () =>
-      getBookInfo("abc123").then((b) => {
-        setBook(b);
-      });
-    fetcher();
+    getBookInfo("abc123").then((b) => {
+      setBook(b);
+    });
   }, []);
   //   Post cancel request
   const Cancel = () => {

@@ -1,20 +1,24 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { book } from "../../Interfaces/Book";
 import Keyboard from "@/Components/Keyboard";
 import React from "react";
 import { getAllBooks } from "@/API/getAllBooks";
+import getbattery from "@/Components/getBattery";
 
 export default function SearchPage() {
   const [bookName, setBookName] = useState("");
   const arr: book[] = [];
   const [Books, setBooks] = useState(arr);
   const [keyboardShown, setKeyboardShown] = useState(true);
-  getAllBooks().then((Books) => {
-    setBooks(Books);
-  });
+
+  useEffect(() => {
+    getAllBooks().then((b) => {
+      setBooks(b);
+    });
+  }, []);
 
   const books = Books.filter(
     ({ name }) =>
