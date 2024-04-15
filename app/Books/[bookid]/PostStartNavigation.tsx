@@ -8,7 +8,7 @@ export default async function startNavigationRequest(bookid: string) {
   });
   // console.log("start navigation request is posted");
 
-  // if (!res.ok) throw new Error("Unable to fetch");
+  if (!res.ok) throw new Error("Unable to fetch");
 
   return res;
 }

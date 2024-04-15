@@ -35,7 +35,7 @@ export default function ViewBook({ params }: Props) {
       </div>
       <div className="flex items-end ">
         {/* button to start searching */}
-        <a
+        <div
           onClick={() =>
             startNavigationRequest(bookid).then(() =>
               router.push("../NavigationPage")
@@ -44,7 +44,7 @@ export default function ViewBook({ params }: Props) {
           className="absolute bottom-24 w-80 left-40 text-center mt-12 p-3  bg-green-500 text-white font-bold text-xl"
         >
           Search
-        </a>
+        </div>
       </div>
       <Link
         href="../Search"
