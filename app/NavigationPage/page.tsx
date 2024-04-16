@@ -8,6 +8,7 @@ import { getCurrentStatus } from "@/API/getCurrentStatus";
 import { useEffect, useState } from "react";
 import { getBookInfo } from "@/API/getBook";
 import { emptybook } from "@/Interfaces/Book";
+import PostLaser from "@/API/postLaser";
 
 export default function NavigationPage() {
   const defaultState: RobotCurrentStatus = {
@@ -47,6 +48,7 @@ export default function NavigationPage() {
     } else if (status.navigationState == "SUCCEEDED") {
       // call rack to go up to the book
       PostRack(book.position.z);
+      PostLaser(true);
       return "Destination reached";
     } else if (status.navigationState == "ABORTED") {
       return "Couldn't reach :(";
