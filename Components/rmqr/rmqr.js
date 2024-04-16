@@ -6,6 +6,8 @@ import * as wasm from "rmqr";
 export const RMQR = ({ onSuccess, disabled }) => {
   const vid_r = useRef();
   const canvas_r = useRef();
+  const is_init = useRef(false);
+  const is_disabled = useRef(false);
 
   const getStream = async () => {
     return navigator.mediaDevices.getUserMedia({
@@ -21,7 +23,7 @@ export const RMQR = ({ onSuccess, disabled }) => {
   };
 
   const snapshotVidToCanvas = useCallback(() => {
-    if (disabled) return;
+    if (disabled || is_disabled.current) return;
     const ctx = canvas_r.current.getContext("2d");
     ctx.drawImage(
       vid_r.current,
@@ -41,8 +43,9 @@ export const RMQR = ({ onSuccess, disabled }) => {
       console.log("Error Scanning...");
     }
 
-    if (res.length > 0 && res[0] != "") {
+    if (res.length > 0 && res[0] != "" && res[0].length >= 15) {
       onSuccess(res);
+      is_disabled.current = true;
       return;
     } else {
       setTimeout(() => {
@@ -52,20 +55,21 @@ export const RMQR = ({ onSuccess, disabled }) => {
   }, [onSuccess]);
 
   useEffect(() => {
-    if (canvas_r.current && vid_r.current) {
-      (async function () {
-        const stream = await getStream();
-        vid_r.current.srcObject = stream;
+    if (canvas_r.current && vid_r.current && !disabled) {
+      if (!is_init.current) {
+        (async function () {
+          const stream = await getStream();
+          vid_r.current.srcObject = stream;
+          is_init.current = true;
+          is_disabled.current = false;
+          snapshotVidToCanvas();
+        })();
+      } else {
+        is_disabled.current = false;
         snapshotVidToCanvas();
-      })();
+      }
     }
-  }, [canvas_r.current, vid_r.current]);
-
-  useEffect(() => {
-    if (!disabled) {
-      snapshotVidToCanvas();
-    }
-  }, [snapshotVidToCanvas, disabled]);
+  }, [canvas_r.current, vid_r.current, disabled]);
 
   return (
     <div>

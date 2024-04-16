@@ -13,15 +13,12 @@ const RMQR = dynamic(() => import("../../Components/rmqr/rmqr"), {
 
 export default function Page() {
   const [disabled, setDisabled] = useState(false);
-  const bookList = useRef(null);
+  const [books, setBooks] = useState<string[]>([]);
 
   const onSuccess = useCallback((res: string[]) => {
     console.log("Success");
     setDisabled(true);
-    if (bookList.current) {
-      (bookList.current as any).innerHTML =
-        (bookList.current as any).innerHTML + "\n" + res[0];
-    }
+    setBooks((b) => [...b, res[0]]);
   }, []);
 
   return (
@@ -29,12 +26,29 @@ export default function Page() {
       <div>
         <RMQR onSuccess={onSuccess} disabled={disabled} />
       </div>
-      <div ref={bookList}></div>
+      {books.length > 0 && (
+        <div className="absolute right-8">
+          <p className="font-bold">Books to be returned:</p>
+          {books.map((book, i) => (
+            <p key={i}>{book}</p>
+          ))}
+        </div>
+      )}
       {/* <p className="text-2xl">Name of book</p> */}
-      <div className="absolute bottom-8 inset-x-0 w-full flex justify-center items-center">
+      <div className="absolute bottom-8 inset-x-0 w-full flex justify-center items-center gap-6">
+        {disabled && (
+          <p
+            onClick={() => {
+              setDisabled(false);
+            }}
+            className="w-44 text-center p-3 bg-green-500 text-white font-bold text-xl"
+          >
+            Add Book
+          </p>
+        )}
         <a
           href="../NavigationPage"
-          className="w-80 text-center p-3 bg-green-500 text-white font-bold text-xl"
+          className="w-44 text-center p-3 bg-blue-500 text-white font-bold text-xl"
         >
           Start Returning
         </a>
