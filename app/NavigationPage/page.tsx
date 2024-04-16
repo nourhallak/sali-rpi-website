@@ -12,29 +12,36 @@ import PostLaser from "@/API/postLaser";
 
 export default function NavigationPage() {
   const defaultState: RobotCurrentStatus = {
-    navigationState: "SUCCEEDED",
+    navigationState: "READY",
     rackState: "HOME",
     batteryPercentage: 100,
   };
   const [status, setStatus] = useState(defaultState);
   const [book, setBook] = useState(emptybook);
-  // setstatus
+
   useEffect(() => {
-    getCurrentStatus().then((state) => {
-      setStatus(state);
-    });
+    let fetcher = () =>
+      getCurrentStatus().then((state) => {
+        setStatus(state);
+      });
+    let interval = setInterval(() => {
+      fetcher();
+    }, 1000);
+    fetcher();
+
+    return () => clearInterval(interval);
   }, []);
-  // set book
+
   useEffect(() => {
     getBookInfo("123abc").then((b) => {
       setBook(b);
     });
   }, []);
-  //   Post cancel request
+
   const Cancel = () => {
     PostCancel();
   };
-  //   Post pause request
+
   const Pause = () => {
     PostPause();
   };
@@ -47,8 +54,8 @@ export default function NavigationPage() {
       return "Navigating to book";
     } else if (status.navigationState == "SUCCEEDED") {
       // call rack to go up to the book
-      PostRack(book.position.z);
-      PostLaser(true);
+      // PostRack(book.position.z);
+      // PostLaser(true);
       return "Destination reached";
     } else if (status.navigationState == "ABORTED") {
       return "Couldn't reach :(";
@@ -70,18 +77,16 @@ export default function NavigationPage() {
     }
   };
 
+  let rackState = rackStatusTextControl();
+
   return (
     <main className="m-24 flex flex-col items-center">
-      <p className="text-black  text-2xl">
-        navigation: {navigationStatusTextControl()}
-      </p>
-      <p className="text-black  text-2xl">Rack: {rackStatusTextControl()}</p>
-      <p className="text-black  text-2xl">
-        {book.name} + {book.position.z}
-      </p>
+      <p className="text-black  text-2xl">{navigationStatusTextControl()}</p>
+      {rackState && <p className="text-black  text-2xl">{rackState}</p>}
+      <p className="text-black  text-2xl">{book.name}</p>
       <div>
         <div className="flex justify-between m-8 ">
-          {/* Buuton to pause */}
+          {/* Button to pause */}
           <div
             onClick={Pause}
             className="absolute bottom-28 left-52 w-[185px] text-center p-3 border border-gray-600 font-bold"
