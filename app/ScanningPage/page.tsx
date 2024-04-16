@@ -1,47 +1,55 @@
 "use client";
+
 import PostScan from "./PostScanRequest";
 import CancelScan from "./CancelScanRquest";
 import Link from "next/link";
+import dynamic from "next/dynamic";
+import { useCallback, useEffect, useRef, useState } from "react";
 
-export default function page() {
-  //   Post scan request
-  const Scan = () => {
-    PostScan();
-  };
+const RMQR = dynamic(() => import("../../Components/rmqr/rmqr"), {
+  loading: () => <p>Loading...</p>,
+  ssr: false,
+});
 
-  //   Post cancel scan request
-  const cancelScan = () => {
-    CancelScan();
-  };
+export default function Page() {
+  const [disabled, setDisabled] = useState(false);
+  const bookList = useRef(null);
+
+  const onSuccess = useCallback((res: string[]) => {
+    console.log("Success");
+    setDisabled(true);
+    if (bookList.current) {
+      (bookList.current as any).innerHTML =
+        (bookList.current as any).innerHTML + "\n" + res[0];
+    }
+  }, []);
 
   return (
-    <main className="flex flex-col mt-20 items-center ">
-      <p className="text-2xl">Name of book</p>
-      <div className="">
+    <main className="flex flex-col items-center ">
+      <div>
+        <RMQR onSuccess={onSuccess} disabled={disabled} />
+      </div>
+      <div ref={bookList}></div>
+      {/* <p className="text-2xl">Name of book</p> */}
+      <div className="absolute bottom-8 inset-x-0 w-full flex justify-center items-center">
         <a
-          onClick={Scan}
-          className="absolute bottom-40 left-60 w-36 text-center p-3 border border-gray-600 font-bold"
+          href="../NavigationPage"
+          className="w-80 text-center p-3 bg-green-500 text-white font-bold text-xl"
         >
-          Scan
-        </a>
-        <a
-          onClick={cancelScan}
-          className="absolute bottom-40 right-60 w-36 text-center  p-3 border border-gray-600 font-bold"
-        >
-          Cancel Scan
+          Start Returning
         </a>
       </div>
-      <a
-        href="../NavigationPage"
-        className="absolute bottom-24 left-[240px] w-80 text-center p-3 bg-green-500 text-white font-bold text-xl"
+      {/* <Link
+        href="../"
+        className="absolute bottom-8 right-8 p-3 border border-gray-600 font-bold"
       >
-        Start Returning
-      </a>
+        Back to Home
+      </Link> */}
       <Link
         href="../"
         className="absolute bottom-8 left-8 p-3 border border-gray-600 font-bold"
       >
-        Back to home
+        Cancel Scan
       </Link>
     </main>
   );

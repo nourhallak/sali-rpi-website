@@ -1,0 +1,16 @@
+{
+  "name": "rmqr",
+  "version": "0.1.0",
+  "files": [
+    "rmqr_bg.wasm",
+    "rmqr.js",
+    "rmqr_bg.js",
+    "rmqr.d.ts"
+  ],
+  "module": "rmqr.js",
+  "types": "rmqr.d.ts",
+  "sideEffects": [
+    "./rmqr.js",
+    "./snippets/*"
+  ]
+}
