@@ -5,6 +5,8 @@ import CancelScan from "./CancelScanRquest";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
+import navigateToBooks from "@/API/navigateToBooks";
 
 const RMQR = dynamic(() => import("../../Components/rmqr/rmqr"), {
   loading: () => <p>Loading...</p>,
@@ -14,6 +16,7 @@ const RMQR = dynamic(() => import("../../Components/rmqr/rmqr"), {
 export default function Page() {
   const [disabled, setDisabled] = useState(false);
   const [books, setBooks] = useState<string[]>([]);
+  const router = useRouter();
 
   const onSuccess = useCallback((res: string[]) => {
     console.log("Success");
@@ -46,12 +49,15 @@ export default function Page() {
             Add Book
           </p>
         )}
-        <a
-          href="../NavigationPage"
+        <p
+          onClick={async () => {
+            await navigateToBooks(books);
+            router.push("../NavigationPage");
+          }}
           className="w-44 text-center p-3 bg-blue-500 text-white font-bold text-xl"
         >
           Start Returning
-        </a>
+        </p>
       </div>
       {/* <Link
         href="../"
