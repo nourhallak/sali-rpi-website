@@ -31,7 +31,7 @@ export default function ViewBook({ params }: Props) {
         </p>
       </div>
       <div className="absolute right-40 top-40">
-        <Image width={145} height={200} alt="image" src="/image.jpg" />
+        <Image width={145} height={200} alt="image" src="/image21.jpg" />
       </div>
       <div className="flex items-end ">
         {/* button to start searching */}

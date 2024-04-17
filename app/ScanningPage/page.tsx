@@ -7,6 +7,7 @@ import dynamic from "next/dynamic";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import navigateToBooks from "@/API/navigateToBooks";
+import lowercamera from "@/API/postLowerCamera";
 
 const RMQR = dynamic(() => import("../../Components/rmqr/rmqr"), {
   loading: () => <p>Loading...</p>,
@@ -51,6 +52,7 @@ export default function Page() {
         )}
         <p
           onClick={async () => {
+            lowercamera();
             await navigateToBooks(books);
             router.push("../NavigationPage");
           }}
