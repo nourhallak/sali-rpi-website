@@ -23,34 +23,38 @@ export const RMQR = ({ onSuccess, disabled }) => {
   };
 
   const snapshotVidToCanvas = useCallback(() => {
-    if (disabled || is_disabled.current) return;
-    const ctx = canvas_r.current.getContext("2d");
-    ctx.drawImage(
-      vid_r.current,
-      (1280 - 720) * 0.5,
-      0,
-      720,
-      720,
-      0,
-      0,
-      512,
-      512
-    );
-    let res = [];
     try {
-      res = wasm.render();
-    } catch {
-      console.log("Error Scanning...");
-    }
+      if (disabled || is_disabled.current) return;
+      const ctx = canvas_r.current.getContext("2d");
+      ctx.drawImage(
+        vid_r.current,
+        (1280 - 720) * 0.5,
+        0,
+        720,
+        720,
+        0,
+        0,
+        512,
+        512
+      );
+      let res = [];
+      try {
+        res = wasm.render();
+      } catch {
+        console.log("Error Scanning...");
+      }
 
-    if (res.length > 0 && res[0] != "" && res[0].length >= 15) {
-      onSuccess(res);
-      is_disabled.current = true;
-      return;
-    } else {
-      setTimeout(() => {
-        window.requestAnimationFrame(snapshotVidToCanvas);
-      }, 50);
+      if (res.length > 0 && res[0] != "" && res[0].length >= 15) {
+        onSuccess(res);
+        is_disabled.current = true;
+        return;
+      } else {
+        setTimeout(() => {
+          window.requestAnimationFrame(snapshotVidToCanvas);
+        }, 50);
+      }
+    } catch (e) {
+      console.log(e);
     }
   }, [onSuccess]);
 
